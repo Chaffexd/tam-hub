@@ -1,19 +1,10 @@
 import Image from "next/image";
-import React from "react";
+import type { TeamMembersProps } from "@/types/contentfulTypes";
 
-type TeamMemberProps = {
-  teamMemberData: {
-    name: string;
-    title: string;
-    location: string
-    authorImage: {}
-  };
-};
-
-const TeamMember = ({ teamMemberData }: TeamMemberProps) => {
+const TeamMember = ({ teamMemberData }: TeamMembersProps) => {
   
   return (
-    <div className="w-1/3 flex flex-col items-center justify-center my-4">
+    <div className="md:w-1/3 flex flex-col items-center justify-center my-4">
       <Image
         src={`https:${teamMemberData.authorImage.fields.image.fields.file.url}`}
         alt={teamMemberData.authorImage.fields.image.fields.description}

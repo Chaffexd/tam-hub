@@ -1,13 +1,17 @@
 import { createClient } from "contentful";
 
 const client = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID!,
-  accessToken: process.env.CONTENTFUL_DELIVERY_KEY!,
-  environment: process.env.CONTENTFUL_ENV,
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_DELIVERY_KEY!,
+  environment: process.env.NEXT_PUBLIC_CONTENTFUL_ENV,
 });
 
 export async function fetchHomePage() {
-  const data = client.getEntry("XNoLEGFGyJ6c4LpzujKJA");
+  const data = client.getEntries({
+    content_type: "landingPage",
+    include: 5,
+    "fields.slug[match]": "/"
+  });
 
   return data;
 }
