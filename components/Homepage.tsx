@@ -6,6 +6,7 @@ import Link from "next/link";
 
 const Homepage = ({ pageInfo }: HomePageProps) => {
   const { description, featuredImage, tiles, accounts } = pageInfo;
+  console.log("Tiles =", tiles);
 
   return (
     <>
@@ -52,13 +53,13 @@ const Homepage = ({ pageInfo }: HomePageProps) => {
         ))}
       </div>
       <div className="w-full">
-        <h3 className="text-3xl mt-28 mb-4">{tiles.fields.featureCards}</h3>
+        <h3 className="text-3xl mt-28 mb-4">Explore</h3>
         <p className="mb-16">
           Find materials for technical aspects of the product and enablement
           materials
         </p>
         <div className="flex flex-wrap gap-8 justify-between mb-12">
-          {tiles.fields.cards.map((card) => (
+          {tiles.map((card: any) => (
             <Link
               key={card.sys.id}
               href={card.fields.slug}

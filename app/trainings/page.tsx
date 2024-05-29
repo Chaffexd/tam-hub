@@ -1,9 +1,14 @@
-import React from 'react'
+import TrainingPage from "@/components/TrainingPage";
+import { fetchPage, fetchTrainingsPage } from "@/lib/contentful";
 
-const TrainingsPage = () => {
+const TrainingsPage = async () => {
+  const trainingData = await fetchPage("trainings");
+
   return (
-    <div>page</div>
-  )
-}
+    <section className="min-h-screen md:px-40 mt-8">
+      <TrainingPage trainingData={trainingData.items[0].fields} />
+    </section>
+  );
+};
 
-export default TrainingsPage
+export default TrainingsPage;

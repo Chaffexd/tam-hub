@@ -14,7 +14,8 @@ const config: Config = {
           1: "#1770e5"
         },
         cfgrey: {
-          1: "#c4d1de"
+          1: "#c4d1de",
+          2: "#2b2d31" 
         }
       }
     },

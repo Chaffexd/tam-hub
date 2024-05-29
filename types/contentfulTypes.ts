@@ -55,18 +55,15 @@ export type PageProps = {
     };
   };
   tiles: {
-    fields: {
-      featureCards: string;
-      cards: {
-        sys: Sys;
-        fields: {
-          title: string;
-          slug: string;
-          description: string;
-        };
-      }[];
-    };
-  };
+    cards: {
+      sys: Sys;
+      fields: {
+        title: string;
+        slug: string;
+        description: string;
+      };
+    }[];
+  }[];
   accounts: {
     sys: Sys;
     fields: {

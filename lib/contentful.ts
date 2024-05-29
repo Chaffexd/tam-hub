@@ -1,16 +1,26 @@
 import { createClient } from "contentful";
 
 const client = createClient({
-  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
-  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_DELIVERY_KEY!,
-  environment: process.env.NEXT_PUBLIC_CONTENTFUL_ENV,
+  space: process.env.CONTENTFUL_SPACE_ID!,
+  accessToken: process.env.CONTENTFUL_DELIVERY_KEY!,
+  environment: process.env.CONTENTFUL_ENV,
 });
 
-export async function fetchHomePage() {
+export async function fetchPage(slug: string) {
   const data = client.getEntries({
     content_type: "landingPage",
     include: 5,
-    "fields.slug[match]": "/"
+    "fields.slug[match]": slug,
+  });
+
+  return data;
+}
+
+export async function fetchTrainingsPage() {
+  const data = client.getEntries({
+    content_type: "landingPage",
+    include: 5,
+    "fields.slug[match]": "trainings",
   });
 
   return data;
