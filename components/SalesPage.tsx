@@ -5,7 +5,7 @@ import Link from "next/link";
 
 // @ts-expect-error
 const SalesInfoPage = ({ salesData }) => {
-  console.log("Sales =", salesData.tiles);
+  
   const { description, featuredImage, tiles } = salesData;
   return (
     <>
@@ -35,6 +35,9 @@ const SalesInfoPage = ({ salesData }) => {
             </div>
           </Link>
         ))}
+      </div>
+      <div className="mt-20">
+        <p className="font-bold">Looking for more? Then take a look at our <Link className="text-cfblue-1 font-bold hover:underline" href={"/sales/case-study"}>Case Studies!</Link></p>
       </div>
     </>
   );

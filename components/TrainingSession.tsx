@@ -3,13 +3,18 @@ import Image from "next/image";
 import React from "react";
 import { richTextOptions } from "@/lib/richTextOptions";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import BackArrow from "./icons/BackArrow";
+import Link from "next/link";
 
 // @ts-expect-error
 const TrainingSession = ({ trainingSessionData }) => {
-  console.log("Training session =", trainingSessionData.description);
+  
   return (
     <>
-      <div className="w-full">
+      <Link href={"/trainings"}>
+        <BackArrow />
+      </Link>
+      <div className="w-full mt-8">
         <div className="rounded-xl border border-ctgrey-1 p-4 mb-8 bg-slate-100">
           <div className="flex items-center">
             <Image
@@ -48,7 +53,10 @@ const TrainingSession = ({ trainingSessionData }) => {
         />
         <div className="mt-8 mb-20">
           {trainingSessionData.description &&
-            documentToReactComponents(trainingSessionData.description, richTextOptions)}
+            documentToReactComponents(
+              trainingSessionData.description,
+              richTextOptions
+            )}
         </div>
       </div>
     </>

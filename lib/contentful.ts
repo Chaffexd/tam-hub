@@ -17,10 +17,12 @@ export async function fetchPage(slug: string) {
 }
 
 export async function fetchTrainingSession(slug: string) {
+  // @ts-expect-error
   const data = client.getEntries({
     content_type: "trainingSession",
     include: 5,
     "fields.slug": slug,
+    order: "sys.createdAt"
   });
 
   return data;

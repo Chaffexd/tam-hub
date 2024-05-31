@@ -6,7 +6,6 @@ import Link from "next/link";
 
 const Homepage = ({ pageInfo }: HomePageProps) => {
   const { description, featuredImage, tiles, accounts } = pageInfo;
-  console.log("Tiles =", tiles);
 
   return (
     <>

@@ -2,8 +2,9 @@ import Image from "next/image";
 import { richTextOptions } from "@/lib/richTextOptions";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
+// @ts-expect-error
 const CaseStudy = ({ caseData }) => {
-  console.log("Case Data =", caseData.fields.outcomes);
+  
   return (
     <>
       <p className="text-slate-600 font-bold mb-4">Case study</p>
@@ -13,7 +14,7 @@ const CaseStudy = ({ caseData }) => {
             {caseData.fields.accountName}
           </h1>
           <h2 className="font-bold mb-2 text-xl">Use cases:</h2>
-          {caseData.fields.useCases.map((useCase, index) => (
+          {caseData.fields.useCases.map((useCase: any, index: number) => (
             <p className="font-md mb-2" key={index}>
               {useCase}
             </p>
@@ -29,10 +30,11 @@ const CaseStudy = ({ caseData }) => {
             alt={caseData.fields.companyLogo.fields.altText}
             height={200}
             width={200}
+            className="rounded-xl w-[250px] bg-white"
           />
         </div>
       </div>
-      <div className="p-4 mt-10">
+      <div className="p-4 mt-10 mb-24">
         {caseData.fields.outcomes && documentToReactComponents(caseData.fields.outcomes, richTextOptions)}
       </div>
     </>
