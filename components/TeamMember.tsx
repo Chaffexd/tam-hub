@@ -2,7 +2,7 @@ import Image from "next/image";
 import type { TeamMembersProps } from "@/types/contentfulTypes";
 
 const TeamMember = ({ teamMemberData }: TeamMembersProps) => {
-  
+
   return (
     <div className="md:w-1/3 flex flex-col items-center justify-center my-4">
       <Image

@@ -16,6 +16,9 @@ const config: Config = {
         cfgrey: {
           1: "#c4d1de",
           2: "#2b2d31" 
+        },
+        cfyellow: {
+          1: "#ffdb23"
         }
       }
     },

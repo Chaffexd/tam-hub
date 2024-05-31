@@ -1,8 +1,9 @@
 import TrainingPage from "@/components/TrainingPage";
-import { fetchPage, fetchTrainingsPage } from "@/lib/contentful";
+import { fetchPage } from "@/lib/contentful";
 
 const TrainingsPage = async () => {
   const trainingData = await fetchPage("trainings");
+  // console.log("Training Data = ", trainingData.items[0].fields.tiles);
 
   return (
     <section className="min-h-screen md:px-40 mt-8">

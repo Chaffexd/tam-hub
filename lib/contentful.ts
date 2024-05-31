@@ -10,17 +10,17 @@ export async function fetchPage(slug: string) {
   const data = client.getEntries({
     content_type: "landingPage",
     include: 5,
-    "fields.slug[match]": slug,
+    "fields.slug": slug,
   });
 
   return data;
 }
 
-export async function fetchTrainingsPage() {
+export async function fetchTrainingSession(slug: string) {
   const data = client.getEntries({
-    content_type: "landingPage",
+    content_type: "trainingSession",
     include: 5,
-    "fields.slug[match]": "trainings",
+    "fields.slug": slug,
   });
 
   return data;
@@ -40,8 +40,28 @@ export async function fetchFooter() {
 
 export async function fetchTeamMembers() {
   const data = client.getEntries({
+    content_type: "tamTeam",
+    include: 5,
+  });
+
+  return data;
+}
+
+export async function fetchDirector() {
+  const data = client.getEntries({
     content_type: "author",
-    include: 4,
+    include: 5,
+    "sys.id": "OFwhiD85591OImxjPs8ug",
+  });
+
+  return data;
+}
+
+export async function fetchCaseStudy(slug: string) {
+  const data = client.getEntries({
+    content_type: "caseStudy",
+    include: 5,
+    "fields.slug": slug,
   });
 
   return data;
