@@ -2,16 +2,42 @@ import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
 import Image from "next/image";
 import Link from "next/link";
 
+/* const CopyLinkIcon = ({ titles }: { titles: string }) => {
+  const copyLinkToClipboard = () => {
+    const link = `${window.location.origin}/${window.location.pathname}#${titles
+      .toLowerCase()
+      .replace(" ", "-")}`;
+
+    window.history.pushState(null, ''.)
+    navigator.clipboard.writeText(link).then(() => {
+      alert("Copied!");
+    });
+  };
+
+  return (
+    <button onClick={copyLinkToClipboard} className="text-cfblue-1 hover:underline invisible group-hover:visible ml-4">
+      #
+    </button>
+  );
+}; */
+
 export const richTextOptions = {
   renderText: (text: any) => {
-    return text.split("\n").reduce((children: any, textSegment: any, index: any) => {
-      return [...children, index > 0 && <br key={index} />, textSegment];
-    }, []);
+    return text
+      .split("\n")
+      .reduce((children: any, textSegment: any, index: any) => {
+        return [...children, index > 0 && <br key={index} />, textSegment];
+      }, []);
   },
   renderNode: {
     [BLOCKS.HEADING_1]: (node: any, children: any) => {
+      
+      const titles = children[0][1];
       return (
-        <h1 className="font-bold text-5xl my-4 dark:text-white">{children}</h1>
+        <h1 className="font-bold text-5xl my-4 dark:text-white flex items-center group">
+          {children}
+          {/* <CopyLinkIcon titles={titles} /> */}
+        </h1>
       );
     },
     [BLOCKS.HEADING_2]: (node: any, children: any) => {
@@ -51,7 +77,9 @@ export const richTextOptions = {
     },
     [BLOCKS.OL_LIST]: (node: any, children: any) => {
       return (
-        <ol className="my-4 dark:text-slate-200 list-inside">{children}</ol>
+        <ol className="my-4 dark:text-slate-200 list-inside list-decimal">
+          {children}
+        </ol>
       );
     },
     [BLOCKS.PARAGRAPH]: (node: any, children: any) => {

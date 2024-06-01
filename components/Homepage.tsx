@@ -57,12 +57,12 @@ const Homepage = ({ pageInfo }: HomePageProps) => {
           Find materials for technical aspects of the product and enablement
           materials
         </p>
-        <div className="flex flex-wrap gap-8 justify-between mb-12">
+        <div className="flex flex-wrap gap-8 mb-12 justify-evenly">
           {tiles.map((card: any) => (
             <Link
               key={card.sys.id}
               href={card.fields.slug}
-              className="w-52 p-8 min-h-64 border-2 border-cfgrey-1 hover:bg-blue-50 rounded-xl hover:-translate-y-2 transition-transform transform"
+              className="w-56 p-8 min-h-64 border-2 border-cfgrey-1 hover:bg-blue-50 rounded-xl hover:-translate-y-2 transition-transform transform"
             >
               <h4 className="text-xl font-bold mb-2">{card.fields.title}</h4>
               <p>{card.fields.description}</p>
