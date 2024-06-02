@@ -1,6 +1,6 @@
 import { createClient } from "contentful";
 
-const client = createClient({
+export const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID!,
   accessToken: process.env.CONTENTFUL_DELIVERY_KEY!,
   environment: process.env.CONTENTFUL_ENV,
@@ -21,7 +21,7 @@ export async function fetchTrainingSession(slug: string) {
   const data = client.getEntries({
     content_type: "trainingSession",
     include: 5,
-    "fields.slug": slug,
+    "fields.slug": `/trainings/${slug}`,
     order: "sys.createdAt"
   });
 
@@ -63,7 +63,7 @@ export async function fetchCaseStudy(slug: string) {
   const data = client.getEntries({
     content_type: "caseStudy",
     include: 5,
-    "fields.slug": slug,
+    "fields.slug": `/sales/case-study/${slug}`,
   });
 
   return data;

@@ -6,20 +6,25 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postbuild": "node ./lib/algolia.ts"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.21.2",
+    "algoliasearch": "^4.23.3",
     "cf-content-types-generator": "^2.15.1",
     "contentful": "^10.11.5",
+    "dotenv": "^16.4.5",
     "next": "14.2.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-instantsearch-dom": "^6.40.4"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-instantsearch-dom": "^6.12.7",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
     "postcss": "^8",

@@ -23,7 +23,7 @@ const TrainingPage = ({ trainingData }) => {
       </div>
       <div>
         {tiles.map((tile: any) => (
-          <Link key={tile.sys.id} href={`/trainings/${tile.fields.slug}`}>
+          <Link key={tile.sys.id} href={`${tile.fields.slug}`}>
             <div className="rounded-xl border border-ctgrey-1 p-4 cursor-pointer hover:bg-blue-50 hover:-translate-y-2 transition-transform transform mb-12">
               <div className="flex items-center">
                 <Image
