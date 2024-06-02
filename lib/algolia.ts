@@ -1,6 +1,8 @@
 const dotenv = require("dotenv");
 const algoliasearch = require("algoliasearch/lite");
 
+dotenv.config({ path: ".env.local" });
+
 async function getCaseStudies() {
   const response = await fetch(
     `https://cdn.contentful.com/spaces/gqxbq3iozos4/environments/master/entries?access_token=kOp-SOcq8HLpCQSL81WG1T3FKh1SN7x3MSlM7N_We-k&content_type=caseStudy
@@ -83,7 +85,7 @@ function transformedSalesInfo(data) {
 
 (async function () {
   // initialize environment variables
-  dotenv.config();
+  dotenv.config({ path: ".env.local" });
 
   try {
     const caseStudies = await getCaseStudies();
@@ -102,8 +104,8 @@ function transformedSalesInfo(data) {
 
     // Algolia
     const client = algoliasearch(
-      "NYCGFVW4I5",
-      "df41a86f6116e6cfc02962a87484879f"
+      process.env.ALGOLIA_APP_ID,
+      process.env.ALGOLIA_ADMIN_KEY
     );
 
     // initialize the index with your index name
@@ -140,7 +142,8 @@ function transformedSalesInfo(data) {
     );
   } catch (error) {
     console.log(
-      `Something went wrong with Algolia and Contentful 🚨: ${error}`
+      // @ts-expect-error
+      `Something went wrong with Algolia and Contentful 🚨: ${error.message}`
     );
   }
 })();
