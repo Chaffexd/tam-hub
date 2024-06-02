@@ -19,7 +19,7 @@ const Modal = ({ handleModal }: ModalProps) => {
       onClick={handleModal}
     >
       <div
-        className="bg-white p-6 rounded-lg shadow-lg w-3/5 -mt-60 h-96 overflow-y-auto"
+        className="bg-white rounded-lg shadow-lg w-3/5 -mt-60 h-96 overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <InstantSearch
@@ -27,7 +27,7 @@ const Modal = ({ handleModal }: ModalProps) => {
           indexName="contentful_tam"
         >
           <CustomSearchBox />
-          <CustomHits />
+          <CustomHits handleModal={handleModal} />
         </InstantSearch>
       </div>
     </div>

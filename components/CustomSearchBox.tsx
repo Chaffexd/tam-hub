@@ -1,10 +1,8 @@
-// .components/Search/CustomSearchBox.js
-
 import { connectSearchBox } from "react-instantsearch-dom";
 
 function SearchBox({ refine }: { refine: any}) {
   return (
-    <form action="" role="search" className="mb-2">
+    <form action="" role="search" className=" border-b border-slate-200">
       <input
         id="algolia_search"
         type="search"
