@@ -1,11 +1,12 @@
 // ./components/Search/CustomHits.js
 import Link from "next/link";
 import { connectStateResults } from "react-instantsearch-dom";
+import NotFound from "./icons/NotFound";
 
 function Hits({
   searchState,
   searchResults,
-  handleModal
+  handleModal,
 }: {
   searchState: any;
   searchResults: any;
@@ -16,12 +17,19 @@ function Hits({
   return (
     <>
       {searchResults?.hits.length === 0 && validQuery && (
-        <p>Aw snap! No search results were found.</p>
+        <div className="w-full h-full flex  items-center flex-col">
+          <p className="m-8">No results found 👀</p>
+          <NotFound />
+        </div>
       )}
       {searchResults?.hits.length > 0 && (
         <ol>
           {searchResults.hits.map((hit: any) => (
-            <Link href={hit.slug} key={hit.objectID} onClick={() => handleModal()}>
+            <Link
+              href={hit.slug}
+              key={hit.objectID}
+              onClick={() => handleModal()}
+            >
               <li className="w-full  p-4 hover:bg-slate-200 border-b border-slate-200">
                 <div>
                   <h2 className="font-bold mb-2">{hit.title}</h2>
