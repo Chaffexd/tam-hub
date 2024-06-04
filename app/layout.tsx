@@ -23,17 +23,17 @@ export default async function RootLayout({
 
   const session = await auth();
 
-  if (session === null || !session?.user) {
+  /* if (session === null || !session?.user) {
     redirect("/login")
-  }
+  } */
 
   return (
     <html lang="en">
       <body className={`${inter.className} h-full`}>
         <>
-          <Navbar navData={navData} />
+          {session === null || !session?.user ? null : <Navbar navData={navData} /> }
           <main className="max-w-screen-xl m-auto">{children}</main>
-          <Footer />
+          {session === null || !session?.user ? null : <Footer /> }
         </>
       </body>
     </html>

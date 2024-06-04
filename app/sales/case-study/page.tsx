@@ -14,7 +14,7 @@ const CaseStudiesPage = async () => {
   const session = await auth();
   console.log("Session =", session === null);
   if (session === null || !session?.user) {
-    redirect("/login")
+    return redirect("/login")
   }
   return (
     <section className="min-h-screen md:px-40 mt-8">

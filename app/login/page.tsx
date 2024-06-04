@@ -5,10 +5,12 @@ import { redirect } from "next/navigation";
 const LoginPage = async () => {
   const session = await auth();
 
-  console.log("SESSION /LOGIN =", session)
-  if (session?.user) {
-    redirect("/")
-  }
+  console.log("SESSION /LOGIN =", session);
+
+  
+  /* if (session?.user) {
+    return redirect("/")
+  } */
 
 
   return (
