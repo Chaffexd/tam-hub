@@ -11,6 +11,7 @@ export default async function Home({ params }: { params: string }) {
 
   const session = await auth();
   console.log("Session =", session === null);
+  console.log("SESSION / =", session)
   if (session === null || !session?.user) {
     redirect("/login")
   }

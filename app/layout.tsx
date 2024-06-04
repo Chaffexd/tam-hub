@@ -22,7 +22,6 @@ export default async function RootLayout({
   const navData = await fetchNavbar();
 
   const session = await auth();
-  console.log("Session =", session);
 
   if (session === null || !session?.user) {
     redirect("/login")
