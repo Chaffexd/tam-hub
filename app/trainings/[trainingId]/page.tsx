@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props) {
     title: `${trainingData.items[0].fields.topic} - Training Session | TAM Hub`,
     description: trainingData.items[0].fields.previewSnippet,
     openGraph: {
-      images: ['./icon.svg']
+      images: ['./app/icon.svg']
     }
   }
 }
