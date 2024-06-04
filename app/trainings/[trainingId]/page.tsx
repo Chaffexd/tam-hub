@@ -1,7 +1,6 @@
 import { auth } from "@/auth";
 import TrainingSession from "@/components/TrainingSession";
 import { fetchTrainingSession } from "@/lib/contentful";
-import { redirect } from "next/navigation";
  
 type Props = {
   params: { trainingId: string }
@@ -11,12 +10,13 @@ export async function generateMetadata({ params }: Props) {
   const trainingId = params.trainingId;
 
   const trainingData = await fetchTrainingSession(trainingId);
+  
 
   return {
     title: `${trainingData.items[0].fields.topic} - Training Session | TAM Hub`,
     description: trainingData.items[0].fields.previewSnippet,
     openGraph: {
-      images: ['./app/icon.svg']
+      images: "/contentfulLogo.png"
     }
   }
 }
