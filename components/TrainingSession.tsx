@@ -49,7 +49,7 @@ const TrainingSession = ({ trainingSessionData }) => {
         <video
           src={`https:${trainingSessionData.video.fields.file.url}`}
           controls
-          className="rounded-xl mb-8 hover:cursor-pointer w-full"
+          className="rounded-xl mb-8 hover:cursor-pointer w-full h-auto"
         />
         <div className="mt-8 mb-20">
           {trainingSessionData.description &&

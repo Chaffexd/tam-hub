@@ -1,12 +1,21 @@
+import { auth } from "@/auth";
 import { fetchPage } from "@/lib/contentful";
 import Image from "next/image";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import React from "react";
 
 const CaseStudiesPage = async () => {
   const homePageData = await fetchPage("/");
 
   const { accounts } = homePageData.items[0].fields;
+
+
+  const session = await auth();
+  console.log("Session =", session === null);
+  if (session === null || !session?.user) {
+    redirect("/login")
+  }
   return (
     <section className="min-h-screen md:px-40 mt-8">
       <p className="font-bold text-4xl">Our Accounts</p>

@@ -4,12 +4,14 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { fetchNavbar } from "@/lib/contentful";
+import { auth } from "@/auth";
+import { redirect } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "TAM Hub",
-  description: "The home of information for Technical Account Managers",
+  description: "The home of information for Technical Account Management",
 };
 
 export default async function RootLayout({
@@ -18,12 +20,22 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const navData = await fetchNavbar();
+
+  const session = await auth();
+  console.log("Session =", session);
+
+  if (session === null || !session?.user) {
+    redirect("/login")
+  }
+
   return (
     <html lang="en">
       <body className={`${inter.className} h-full`}>
-        <Navbar navData={navData} />
-        <main className="max-w-screen-xl m-auto">{children}</main>
-        <Footer />
+        <>
+          <Navbar navData={navData} />
+          <main className="max-w-screen-xl m-auto">{children}</main>
+          <Footer />
+        </>
       </body>
     </html>
   );

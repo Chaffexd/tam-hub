@@ -1,5 +1,7 @@
+import { auth } from "@/auth";
 import TeamMember from "@/components/TeamMember";
 import { fetchDirector, fetchTeamMembers } from "@/lib/contentful";
+import { redirect } from "next/navigation";
 
 const TAMTeamPage = async () => {
   const teamMembers = await fetchTeamMembers();
@@ -7,6 +9,13 @@ const TAMTeamPage = async () => {
 
   // John
   const director = getDirector.items[0].fields;
+
+
+  const session = await auth();
+  console.log("Session =", session === null);
+  if (session === null || !session?.user) {
+    redirect("/login")
+  }
 
   return (
     <section className="min-h-screen md:px-40 pt-12">
