@@ -2,19 +2,18 @@ import { auth } from "@/auth";
 import TrainingSession from "@/components/TrainingSession";
 import { fetchTrainingSession } from "@/lib/contentful";
 import { redirect } from "next/navigation";
-import type { Metadata, ResolvingMetadata } from 'next'
  
 type Props = {
   params: { trainingId: string }
 }
 
-export async function generateMetadata({ params }: Props, parent: Promise<Metadata>) {
+export async function generateMetadata({ params }: Props) {
   const trainingId = params.trainingId;
 
   const trainingData = await fetchTrainingSession(trainingId);
 
   return {
-    title: trainingData.items[0].fields.topic,
+    title: `${trainingData.items[0].fields.topic} - Training Session | TAM Hub`,
     description: trainingData.items[0].fields.previewSnippet,
     openGraph: {
       images: ['./icon.svg']
