@@ -9,12 +9,12 @@ import Link from "next/link";
 const CaseStudy = ({ caseData }) => {
   return (
     <>
-      <Link href={"/sales/case-study"} className="mb-8 block w-8">
+      <Link href={"/sales/case-study"} className="mb-8 block w-8 md:pl-0 pl-4">
         <BackArrow />
       </Link>
-      <p className="text-slate-600 font-bold mb-4">Case study</p>
-      <div className="flex justify-between bg-slate-400 rounded-xl p-4">
-        <div className="w-1/2 p-20 text-white">
+      <p className="text-slate-600 font-bold mb-4 md:pl-0 pl-4">Case study</p>
+      <div className="flex flex-col sm:flex-row justify-center items-center sm:justify-between bg-slate-400 lg:rounded-xl p-4">
+        <div className="sm:w-1/2 p-20 text-white">
           <h1 className="font-bold text-5xl mb-8">
             {caseData.fields.accountName}
           </h1>

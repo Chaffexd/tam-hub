@@ -11,10 +11,10 @@ const TrainingSession = ({ trainingSessionData }) => {
   
   return (
     <>
-      <Link href={"/trainings"}>
+      <Link href={"/trainings"} className="sm:pl-0 ml-2 block">
         <BackArrow />
       </Link>
-      <div className="w-full mt-8">
+      <div className="w-full mt-8 px-4 sm:px-0">
         <div className="rounded-xl border border-ctgrey-1 p-4 mb-8 bg-slate-100">
           <div className="flex items-center">
             <Image

@@ -7,7 +7,7 @@ const TamInfo = ({ tamData }) => {
 
   const { description, featuredImage, tiles } = tamData;
   return (
-    <div className="w-full mb-20">
+    <div className="w-full mb-20 px-4 lg:px-0">
       {description && documentToReactComponents(description, richTextOptions)}
     </div>
   );

@@ -8,8 +8,8 @@ const TrainingPage = ({ trainingData }) => {
   const { description, featuredImage, tiles } = trainingData;
   return (
     <>
-      <div className="flex items-center justify-between mb-28">
-        <div className="w-1/2">
+      <div className="flex xl:flex-row flex-col items-center justify-between mb-28 xl:px-0 px-4">
+        <div className="xl:w-1/2">
           {description &&
             documentToReactComponents(description, richTextOptions)}
         </div>
@@ -21,7 +21,7 @@ const TrainingPage = ({ trainingData }) => {
           className="max-h-[400px]"
         />
       </div>
-      <div>
+      <div className="lg:px-0 px-4">
         {tiles.map((tile: any) => (
           <Link key={tile.sys.id} href={`${tile.fields.slug}`}>
             <div className="rounded-xl border border-ctgrey-1 p-4 cursor-pointer hover:bg-blue-50 hover:-translate-y-2 transition-transform transform mb-12">

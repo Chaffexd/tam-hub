@@ -9,8 +9,8 @@ const Homepage = ({ pageInfo }: HomePageProps) => {
 
   return (
     <>
-      <div className="flex items-center justify-between mb-28">
-        <div className="w-1/2">
+      <div className="flex lg:flex-row flex-col items-center justify-between mb-28 px-4 lg:px-0">
+        <div className="lg:w-1/2">
           {description &&
             // @ts-expect-error
             documentToReactComponents(description, richTextOptions)}
@@ -24,7 +24,7 @@ const Homepage = ({ pageInfo }: HomePageProps) => {
         />
       </div>
       <p className="font-bold text-4xl">Our Accounts</p>
-      <div className="w-full mt-12 bg-cfblue-1 p-8 rounded-xl flex flex-wrap gap-12 justify-center">
+      <div className="w-full mt-12 bg-cfblue-1 p-8 md:rounded-xl flex flex-wrap gap-12 justify-center">
         {accounts.map((account) => (
           <Link
             key={account.sys.id}
@@ -52,8 +52,8 @@ const Homepage = ({ pageInfo }: HomePageProps) => {
         ))}
       </div>
       <div className="w-full">
-        <h3 className="text-3xl mt-28 mb-4">Explore</h3>
-        <p className="mb-16">
+        <h3 className="text-3xl mt-28 mb-4 px-4 lg:px-0">Explore</h3>
+        <p className="mb-16 px-4 lg:px-0">
           Find materials for technical aspects of the product and enablement
           materials
         </p>

@@ -9,8 +9,8 @@ const SalesInfoPage = ({ salesData }) => {
   const { description, featuredImage, tiles } = salesData;
   return (
     <>
-      <div className="flex lg:flex-row flex-col items-center justify-between mb-28">
-        <div className="lg:w-1/2 px-4">
+      <div className="flex xl:flex-row flex-col items-center justify-between mb-28">
+        <div className="xl:w-1/2 px-4">
           {description &&
             documentToReactComponents(description, richTextOptions)}
         </div>
@@ -37,7 +37,7 @@ const SalesInfoPage = ({ salesData }) => {
         ))}
       </div>
       <div className="mt-20">
-        <p className="font-bold">Looking for more? Then take a look at our <Link className="text-cfblue-1 font-bold hover:underline" href={"/sales/case-study"}>Case Studies!</Link></p>
+        <p className="font-bold text-center xl:text-start">Looking for more? Then take a look at our <Link className="text-cfblue-1 font-bold hover:underline" href={"/sales/case-study"}>Case Studies!</Link></p>
       </div>
     </>
   );

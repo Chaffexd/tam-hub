@@ -18,7 +18,7 @@ const CaseStudyPage = async ({ params }: { params: { caseId: string } }) => {
   }
 
   return (
-    <section className="min-h-screen md:px-40 mt-8">
+    <section className="min-h-screen lg:px-40 mt-8">
       <CaseStudy caseData={caseData.items[0]} />
     </section>
   );

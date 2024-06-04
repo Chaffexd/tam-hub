@@ -7,13 +7,6 @@ const TrainingsPage = async () => {
   const trainingData = await fetchPage("trainings");
   console.log("Training Data = ", trainingData.items[0].fields.tiles);
 
-
-  /* const session = await auth();
-  console.log("Session =", session === null);
-  if (session === null || !session?.user) {
-    return redirect("/login")
-  } */
-
   return (
     <section className="min-h-screen md:px-40 mt-8">
       <TrainingPage trainingData={trainingData.items[0].fields} />

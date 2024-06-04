@@ -18,8 +18,8 @@ const CaseStudiesPage = async () => {
   }
   return (
     <section className="min-h-screen md:px-40 mt-8">
-      <p className="font-bold text-4xl">Our Accounts</p>
-      <div className="w-full mt-12 bg-cfblue-1 p-8 rounded-xl flex flex-wrap gap-12 justify-center mb-20">
+      <p className="font-bold text-4xl md:px-0 px-4">Our Accounts</p>
+      <div className="w-full mt-12 bg-cfblue-1 p-8 xl:rounded-xl flex flex-wrap gap-12 justify-center mb-20">
         { // @ts-expect-error
         accounts?.map((account: any) => (
           <Link
