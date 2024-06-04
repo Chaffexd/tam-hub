@@ -14,7 +14,7 @@ export default async function Home({ params }: { params: string }) {
     console.log("Session =", session === null);
     console.log("SESSION / =", session);
     if (session === null || !session?.user) {
-      redirect("/login");
+      return redirect("/login");
     }
   } catch (error) {
     console.log(`Something went really wrong on the homepage: ${error}`);
