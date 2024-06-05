@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { fetchNavbar } from "@/lib/contentful";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,6 +37,7 @@ export default async function RootLayout({
           {session === null || !session?.user ? null : <Footer /> }
         </>
       </body>
+      <GoogleAnalytics gaId="G-PL6HE1T8BN" />
     </html>
   );
 }

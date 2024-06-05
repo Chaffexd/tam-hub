@@ -5,7 +5,6 @@ import Link from "next/link";
 
 // @ts-expect-error
 const SalesInfoPage = ({ salesData }) => {
-  
   const { description, featuredImage, tiles } = salesData;
   return (
     <>
@@ -25,10 +24,7 @@ const SalesInfoPage = ({ salesData }) => {
       <div className="flex flex-wrap gap-8 justify-center">
         {tiles.map((tile: any) => (
           <Link href={tile.fields.link} target="_blank" key={tile.sys.id}>
-            <div
-              
-              className="bg-cfyellow-1 rounded-xl w-[270px] p-4 hover:-translate-y-2 transition-transform transform"
-            >
+            <div className="bg-cfyellow-1 rounded-xl w-[270px] p-4 hover:-translate-y-2 transition-transform transform">
               <p className="font-bold text-center text-white">
                 {tile.fields.documentTitle}
               </p>
@@ -36,8 +32,28 @@ const SalesInfoPage = ({ salesData }) => {
           </Link>
         ))}
       </div>
-      <div className="mt-20">
-        <p className="font-bold text-center xl:text-start">Looking for more? Then take a look at our <Link className="text-cfblue-1 font-bold hover:underline" href={"/sales/case-study"}>Case Studies!</Link></p>
+      <div className="mt-20 mb-4">
+        <p className="font-bold text-center text-lg">
+          Looking for more? Then take a look at our{" "}
+          <Link
+            className="text-cfblue-1 font-bold hover:underline"
+            href={"/sales/case-study"}
+          >
+            Case Studies!
+          </Link>
+        </p>
+      </div>
+      <div className="w-full text-center">
+        <p className="text-2xl mt-20">Not able to find what you're looking for? 🧐</p>
+        <Link
+          href={
+            "https://docs.google.com/forms/d/e/1FAIpQLSeCc3jOd_v9sFptVhiYoPpdgFkdWRsXjqLiUEJzu56IUs0Nvg/viewform?usp=sf_link"
+          }
+          target="_blank"
+          className="text-cfblue-1 font-bold"
+        >
+          Let us know here!
+        </Link>
       </div>
     </>
   );
