@@ -22,7 +22,7 @@ export async function fetchTrainingSession(slug: string) {
     content_type: "trainingSession",
     include: 5,
     "fields.slug": `/trainings/${slug}`,
-    order: "sys.createdAt"
+    order: "sys.createdAt",
   });
 
   return data;
@@ -64,6 +64,17 @@ export async function fetchCaseStudy(slug: string) {
     content_type: "caseStudy",
     include: 5,
     "fields.slug": `/sales/case-study/${slug}`,
+  });
+
+  return data;
+}
+
+export async function fetchTechTalks() {
+  const data = client.getEntries({
+    content_type: "trainingSession",
+    include: 5,
+    // @ts-expect-error
+    order: "-sys.createdAt"
   });
 
   return data;

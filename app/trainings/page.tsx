@@ -1,15 +1,15 @@
 import { auth } from "@/auth";
 import TrainingPage from "@/components/TrainingPage";
-import { fetchPage } from "@/lib/contentful";
-import { redirect } from "next/navigation";
+import { fetchPage, fetchTechTalks } from "@/lib/contentful";
 
 const TrainingsPage = async () => {
   const trainingData = await fetchPage("trainings");
-  console.log("Training Data = ", trainingData.items[0].fields.tiles);
+  const trainingSessions = await fetchTechTalks()
+  console.log("Training Data = ", trainingSessions.items);
 
   return (
     <section className="min-h-screen md:px-40 mt-8">
-      <TrainingPage trainingData={trainingData.items[0].fields} />
+      <TrainingPage trainingData={trainingData.items[0].fields} trainingSessions={trainingSessions.items} />
     </section>
   );
 };

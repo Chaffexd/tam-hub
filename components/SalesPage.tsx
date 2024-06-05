@@ -50,7 +50,7 @@ const SalesInfoPage = ({ salesData }) => {
             "https://docs.google.com/forms/d/e/1FAIpQLSeCc3jOd_v9sFptVhiYoPpdgFkdWRsXjqLiUEJzu56IUs0Nvg/viewform?usp=sf_link"
           }
           target="_blank"
-          className="text-cfblue-1 font-bold"
+          className="text-cfblue-1 font-bold hover:underline"
         >
           Let us know here!
         </Link>

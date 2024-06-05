@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 // @ts-expect-error
-const TrainingPage = ({ trainingData }) => {
+const TrainingPage = ({ trainingData, trainingSessions }) => {
   const { description, featuredImage, tiles } = trainingData;
   return (
     <>
@@ -22,7 +22,7 @@ const TrainingPage = ({ trainingData }) => {
         />
       </div>
       <div className="lg:px-0 px-4">
-        {tiles.map((tile: any) => (
+        {trainingSessions.map((tile: any) => (
           <Link key={tile.sys.id} href={`${tile.fields.slug}`}>
             <div className="rounded-xl border border-ctgrey-1 p-4 cursor-pointer hover:bg-blue-50 hover:-translate-y-2 transition-transform transform mb-12">
               <div className="flex items-center">
