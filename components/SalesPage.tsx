@@ -44,7 +44,7 @@ const SalesInfoPage = ({ salesData }) => {
         </p>
       </div>
       <div className="w-full text-center">
-        <p className="text-2xl mt-20">Not able to find what you're looking for? 🧐</p>
+        <p className="text-2xl mt-20">Not able to find what you&apos;re looking for? 🧐</p>
         <Link
           href={
             "https://docs.google.com/forms/d/e/1FAIpQLSeCc3jOd_v9sFptVhiYoPpdgFkdWRsXjqLiUEJzu56IUs0Nvg/viewform?usp=sf_link"
