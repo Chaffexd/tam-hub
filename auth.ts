@@ -1,6 +1,6 @@
 import NextAuth from "next-auth"
-import google from "next-auth/providers/google"
+import okta from "next-auth/providers/okta"
  
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  providers: [google],
+  providers: [okta],
 })
