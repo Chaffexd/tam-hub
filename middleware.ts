@@ -2,7 +2,9 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export default function middleware(request: NextRequest) {
-  const sessionToken = request.cookies.get("authjs.session-token") || request.cookies.get("__Secure-authjs.session-token");
+  const sessionToken =
+    request.cookies.get("authjs.session-token") ||
+    request.cookies.get("__Secure-authjs.session-token");
   const { pathname, origin } = request.nextUrl;
   const hasToken = !!sessionToken;
 
@@ -27,5 +29,17 @@ export default function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/", "/login", "/api/auth/callback", "/api/auth/session"],
+  matcher: [
+    "/",
+    "/login",
+    "/api/auth/callback",
+    "/api/auth/session",
+    "/trainings",
+    "/sales",
+    "/tam-info",
+    "/tam-team",
+    "/trainings/:path*",
+    "/sales/:path*",
+    "/sales/:path*/:path*",
+  ],
 };
