@@ -48,7 +48,7 @@ async function getKnowledgeArticles() {
 
   const data = await response.json();
 
-  console.log("KNOWLEDGE ARTICLES =", data.items)
+  console.log("KNOWLEDGE ARTICLES CATEGORY =", data.items[0].fields.category)
 
   return data;
 }
@@ -75,7 +75,7 @@ function transformedKnowledgeArticleData(data) {
     return {
       objectID: item.sys.id,
       title: item.fields.title,
-      category: item.fields.category.fields.categoryTitle,
+      // category: item.fields.category.fields.categoryTitle,
       slug: item.fields.slug,
     };
   });
@@ -124,7 +124,6 @@ function transformedSalesInfo(data) {
     const trainingSessions = await getTrainingSession();
     const salesInformation = await getSalesInformational();
     const knowledgeArticleInformation = await getKnowledgeArticles();
-    console.log("articles =", knowledgeArticleInformation.items[0].fields.category.fields.categoryTitle);
 
     const transformedSalesInformationals = transformedSalesInfo(
       salesInformation.items
