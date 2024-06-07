@@ -72,8 +72,8 @@ function transformedKnowledgeArticleData(data) {
   const transformed = data.map((item) => {
     return {
       objectID: item.sys.id,
-      title: item.fields.topic,
-      excerpt: item.fields.previewSnippet,
+      title: item.fields.title,
+      category: item.fields.category.fields.categoryTitle,
       slug: item.fields.slug,
     };
   });
