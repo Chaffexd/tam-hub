@@ -38,6 +38,19 @@ async function getSalesInformational() {
 
   return data;
 }
+
+async function getKnowledgeArticles() {
+  const response = await fetch(
+    `https://cdn.contentful.com/spaces/gqxbq3iozos4/environments/master/entries?access_token=kOp-SOcq8HLpCQSL81WG1T3FKh1SN7x3MSlM7N_We-k&content_type=knowledgeBaseArticle
+        `,
+    { cache: "no-cache" }
+  );
+
+  const data = await response.json();
+
+  return data;
+}
+
 // @ts-expect-error
 function transformedCaseStudyData(data) {
   // @ts-expect-error
@@ -46,6 +59,21 @@ function transformedCaseStudyData(data) {
       objectID: item.sys.id,
       title: item.fields.accountName,
       excerpt: item.fields.challenges,
+      slug: item.fields.slug,
+    };
+  });
+
+  return transformed;
+}
+
+// @ts-expect-error
+function transformedKnowledgeArticleData(data) {
+  // @ts-expect-error
+  const transformed = data.map((item) => {
+    return {
+      objectID: item.sys.id,
+      title: item.fields.topic,
+      excerpt: item.fields.previewSnippet,
       slug: item.fields.slug,
     };
   });
@@ -91,6 +119,7 @@ function transformedSalesInfo(data) {
     const caseStudies = await getCaseStudies();
     const trainingSessions = await getTrainingSession();
     const salesInformation = await getSalesInformational();
+    const knowledgeArticleInformation = await getKnowledgeArticles();
     // console.log("training sessions =", trainingSessions.items);
 
     const transformedSalesInformationals = transformedSalesInfo(
@@ -100,6 +129,10 @@ function transformedSalesInfo(data) {
       trainingSessions.items
     );
     const transformedCaseStudy = transformedCaseStudyData(caseStudies.items);
+
+    const transformedKnowledgeArticles = transformedKnowledgeArticleData(
+      knowledgeArticleInformation.items
+    );
     //console.log("Transformed case studies =", transformedCaseStudy);
 
     // Algolia
@@ -117,6 +150,9 @@ function transformedSalesInfo(data) {
     );
     const algoliaSalesInformation = await index.saveObjects(
       transformedSalesInformationals
+    );
+    const algoliaKnowledgeInfo = await index.saveObjects(
+      transformedKnowledgeArticles
     );
 
     console.log(
@@ -137,6 +173,13 @@ function transformedSalesInfo(data) {
       `🎉 Sucessfully added ${
         algoliaSalesInformation.objectIDs.length
       } records to Algolia search. Object IDs:\n${algoliaSalesInformation.objectIDs.join(
+        "\n"
+      )}`
+    );
+    console.log(
+      `🎉 Sucessfully added ${
+        algoliaKnowledgeInfo.objectIDs.length
+      } records to Algolia search. Object IDs:\n${algoliaKnowledgeInfo.objectIDs.join(
         "\n"
       )}`
     );
