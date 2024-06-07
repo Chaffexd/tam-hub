@@ -48,7 +48,7 @@ async function getKnowledgeArticles() {
 
   const data = await response.json();
 
-  console.log("KNOWLEDGE ARTICLES =", data)
+  console.log("KNOWLEDGE ARTICLES =", data.items)
 
   return data;
 }
@@ -124,7 +124,7 @@ function transformedSalesInfo(data) {
     const trainingSessions = await getTrainingSession();
     const salesInformation = await getSalesInformational();
     const knowledgeArticleInformation = await getKnowledgeArticles();
-    console.log("articles =", knowledgeArticleInformation.items);
+    console.log("articles =", knowledgeArticleInformation.items.map((item) => item.fields.category.fields.categoryTitle));
 
     const transformedSalesInformationals = transformedSalesInfo(
       salesInformation.items
