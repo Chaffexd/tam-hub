@@ -31,7 +31,6 @@ export const richTextOptions = {
   },
   renderNode: {
     [BLOCKS.HEADING_1]: (node: any, children: any) => {
-      
       const titles = children[0][1];
       return (
         <h1 className="font-bold text-5xl my-4 dark:text-white flex items-center group">
@@ -83,11 +82,7 @@ export const richTextOptions = {
       );
     },
     [BLOCKS.PARAGRAPH]: (node: any, children: any) => {
-      return (
-        <p className="my-4 text-lg text-slate-700 dark:text-slate-200 inline">
-          {children}
-        </p>
-      );
+      return <p className="my-4 dark:text-slate-200 inline">{children}</p>;
     },
     [BLOCKS.TABLE]: (node: any, children: any) => {
       return (
@@ -106,6 +101,28 @@ export const richTextOptions = {
           className="sm:w-1/4 md:w-2/4 lg:w-3/4 my-12 rounded-lg shadow-lg"
         />
       );
+    },
+    [BLOCKS.EMBEDDED_ENTRY]: (node: any, children: any) => {
+      console.log("NODE = ", node.data.target.fields.video);
+      if (node.data.target.fields.image) {
+        return (
+          <Image
+            src={`https:${node.data.target.fields.image.fields.file.url}`}
+            alt={node.data.target.fields.altText}
+            width={500}
+            height={500}
+            className="sm:w-1/4 md:w-2/4 lg:w-3/4 my-12 rounded-lg shadow-lg"
+          />
+        );
+      } else {
+        return (
+          <video
+            src={`https:${node.data.target.fields.video.fields.file.url}`}
+            controls
+            className="rounded-xl mb-8 hover:cursor-pointer w-full h-auto mt-8"
+          />
+        );
+      }
     },
     [INLINES.HYPERLINK]: (node: any, children: any) => {
       return (

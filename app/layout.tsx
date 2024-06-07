@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "TAM Hub",
-  description: "The home of information for Technical Account Management",
+  description: "The home of information for Technical Account Management and Support trainings",
 };
 
 export default async function RootLayout({

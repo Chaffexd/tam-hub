@@ -8,10 +8,10 @@ export default function middleware(request: NextRequest) {
   const { pathname, origin } = request.nextUrl;
   const hasToken = !!sessionToken;
 
-  console.log("HAS TOKEN =", hasToken);
+/*   console.log("HAS TOKEN =", hasToken);
   console.log("Requested URL =", request.url);
   console.log("Pathname =", pathname);
-  console.log("Session Token =", sessionToken);
+  console.log("Session Token =", sessionToken); */
 
   if (!hasToken && pathname !== "/login") {
     const loginUrl = new URL("/login", origin);

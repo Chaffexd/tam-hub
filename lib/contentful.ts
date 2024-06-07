@@ -74,7 +74,36 @@ export async function fetchTechTalks() {
     content_type: "trainingSession",
     include: 5,
     // @ts-expect-error
-    order: "-sys.createdAt"
+    order: "-sys.createdAt",
+  });
+
+  return data;
+}
+
+export async function fetchCategoryInfo(slug: string) {
+  const data = client.getEntries({
+    content_type: "category",
+    include: 5,
+    "fields.slug": `/knowledge/${slug}`,
+  });
+
+  return data;
+}
+
+export async function fetchCategoryArticles() {
+  const data = client.getEntries({
+    content_type: "knowledgeBaseArticle",
+    include: 5,
+  });
+
+  return data;
+}
+
+export async function fetchKnowledgeArticle(slug: string) {
+  const data = client.getEntries({
+    content_type: "knowledgeBaseArticle",
+    include: 5,
+    "fields.slug[match]": slug,
   });
 
   return data;
