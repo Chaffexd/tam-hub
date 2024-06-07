@@ -12,7 +12,6 @@ const KnowledgeCategoryPage = async ({
   const data = await fetchCategoryInfo(knowledgeId);
   const allArticles = await fetchCategoryArticles();
 
-  console.log("All Articles = ", data.items);
   // allArticles.items[0].fields.category.fields.categoryTitle or slug
   const { categoryTitle } = data.items[0].fields;
 

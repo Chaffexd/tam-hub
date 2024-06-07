@@ -103,7 +103,7 @@ export async function fetchKnowledgeArticle(slug: string) {
   const data = client.getEntries({
     content_type: "knowledgeBaseArticle",
     include: 5,
-    "fields.slug[match]": slug,
+    "fields.slug": slug,
   });
 
   return data;

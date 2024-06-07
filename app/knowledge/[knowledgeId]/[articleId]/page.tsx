@@ -10,12 +10,15 @@ import Link from "next/link";
 const ArticleDetailPage = async ({
   params,
 }: {
-  params: { articleId: string };
+  params: { knowledgeId: string; articleId: string };
 }) => {
-  const articleData = await fetchKnowledgeArticle(params.articleId);
-  // console.log("Knowledge Article =", articleData.items[0].fields);
+  const { knowledgeId, articleId } = params;
+  const articleData = await fetchKnowledgeArticle(
+    `/knowledge/${knowledgeId}/${articleId}`
+  );
 
-  const { title, date, articleAuthor, articleBody } =
+  console.log("params =", articleData);
+  const { title, date, articleAuthor, articleBody, slug } =
     articleData.items[0].fields;
   const formattedDate = formatDate(date as string);
 
