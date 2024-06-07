@@ -48,6 +48,8 @@ async function getKnowledgeArticles() {
 
   const data = await response.json();
 
+  console.log("KNOWLEDGE ARTICLES =", data)
+
   return data;
 }
 
@@ -78,6 +80,7 @@ function transformedKnowledgeArticleData(data) {
     };
   });
 
+  console.log("transformed articles =", transformed)
   return transformed;
 }
 
@@ -108,6 +111,7 @@ function transformedSalesInfo(data) {
     };
   });
 
+  
   return transformed;
 }
 
@@ -120,7 +124,7 @@ function transformedSalesInfo(data) {
     const trainingSessions = await getTrainingSession();
     const salesInformation = await getSalesInformational();
     const knowledgeArticleInformation = await getKnowledgeArticles();
-    // console.log("training sessions =", trainingSessions.items);
+    console.log("articles =", knowledgeArticleInformation.items);
 
     const transformedSalesInformationals = transformedSalesInfo(
       salesInformation.items

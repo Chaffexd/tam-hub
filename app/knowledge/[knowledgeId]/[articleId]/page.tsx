@@ -17,7 +17,7 @@ const ArticleDetailPage = async ({
     `/knowledge/${knowledgeId}/${articleId}`
   );
 
-  console.log("params =", articleData);
+  // console.log("params =", articleData.items[0].fields.category.fields.categoryTitle);
   const { title, date, articleAuthor, articleBody, slug } =
     articleData.items[0].fields;
   const formattedDate = formatDate(date as string);

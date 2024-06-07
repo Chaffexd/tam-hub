@@ -103,7 +103,6 @@ export const richTextOptions = {
       );
     },
     [BLOCKS.EMBEDDED_ENTRY]: (node: any, children: any) => {
-      console.log("NODE = ", node.data.target.fields.video);
       if (node.data.target.fields.image) {
         return (
           <Image
