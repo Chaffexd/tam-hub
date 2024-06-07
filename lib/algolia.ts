@@ -124,7 +124,7 @@ function transformedSalesInfo(data) {
     const trainingSessions = await getTrainingSession();
     const salesInformation = await getSalesInformational();
     const knowledgeArticleInformation = await getKnowledgeArticles();
-    console.log("articles =", knowledgeArticleInformation.items.map((item: any) => item.fields.category.fields.categoryTitle));
+    console.log("articles =", knowledgeArticleInformation.items[0].fields.category.fields.categoryTitle;
 
     const transformedSalesInformationals = transformedSalesInfo(
       salesInformation.items
