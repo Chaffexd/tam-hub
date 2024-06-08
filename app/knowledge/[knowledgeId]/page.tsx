@@ -27,7 +27,7 @@ const KnowledgeCategoryPage = async ({
         <BackArrow />
       </Link>
       <h1 className="font-bold text-3xl pt-4">{categoryTitle as string}</h1>
-      <div className="mt-12 border-t-cfgrey-1 border-t pt-8">
+      <div className="mt-12 border-t-cfgrey-1 border-t pt-8 flex flex-wrap gap-4">
         {filteredArticles.map((article) => (
           <FilteredArticles key={article.sys.id} article={article} />
         ))}
