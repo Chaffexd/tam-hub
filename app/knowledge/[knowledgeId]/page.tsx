@@ -2,6 +2,12 @@ import FilteredArticles from "@/components/FilteredArticles";
 import BackArrow from "@/components/icons/BackArrow";
 import { fetchCategoryArticles, fetchCategoryInfo } from "@/lib/contentful";
 import Link from "next/link";
+import type { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Internal Knowledge Base | Support',
+  description: 'The internal Support KB',
+}
 
 const KnowledgeCategoryPage = async ({
   params,

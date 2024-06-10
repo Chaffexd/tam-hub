@@ -1,6 +1,11 @@
 import KnowledgePageContent from "@/components/KnowledgePage";
 import { fetchPage } from "@/lib/contentful";
-import React from "react";
+import type { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Internal Knowledge Base | Support',
+  description: 'The internal Support KB',
+}
 
 const KnowledgePage = async () => {
   const data = await fetchPage("/knowledge");

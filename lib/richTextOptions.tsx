@@ -1,6 +1,8 @@
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
 import Image from "next/image";
 import Link from "next/link";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 /* const CopyLinkIcon = ({ titles }: { titles: string }) => {
   const copyLinkToClipboard = () => {
@@ -103,6 +105,18 @@ export const richTextOptions = {
       );
     },
     [BLOCKS.EMBEDDED_ENTRY]: (node: any, children: any) => {
+      if (node.data.target.fields.codeSnippet) {
+        const { codeSnippet, language } = node.data.target.fields;
+        return (
+          <SyntaxHighlighter
+            style={vscDarkPlus}
+            language={language}
+            customStyle={{ marginTop: "20px", marginBottom: "20px" }}
+          >
+            {codeSnippet}
+          </SyntaxHighlighter>
+        );
+      }
       if (node.data.target.fields.image) {
         return (
           <Image

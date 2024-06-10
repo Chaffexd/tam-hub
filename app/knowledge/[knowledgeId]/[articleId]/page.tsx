@@ -6,6 +6,25 @@ import { richTextOptions } from "@/lib/richTextOptions";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import BackArrow from "@/components/icons/BackArrow";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+type Props = {
+  params: { articleId: string, knowledgeId: string }
+}
+
+export async function generateMetadata({ params }: Props) {
+  const articleId = params.articleId;
+  const knowledgeId = params.knowledgeId;
+  const articleData = await fetchKnowledgeArticle(`/knowledge/${knowledgeId}/${articleId}`);
+
+  const { title, date, articleAuthor, articleBody, slug } =
+    articleData.items[0].fields;
+
+  return {
+    // @ts-expect-error
+    title: `${title} | ${articleAuthor?.fields.name}`,
+  };
+}
 
 const ArticleDetailPage = async ({
   params,
