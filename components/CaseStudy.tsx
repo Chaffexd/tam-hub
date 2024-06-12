@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import { richTextOptions } from "@/lib/richTextOptions";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -7,6 +7,7 @@ import Link from "next/link";
 
 // @ts-expect-error
 const CaseStudy = ({ caseData }) => {
+  console.log("Case study =", caseData.fields.tam.fields);
   return (
     <>
       <Link href={"/sales/case-study"} className="mb-8 block w-8 md:pl-0 pl-4">
@@ -18,6 +19,10 @@ const CaseStudy = ({ caseData }) => {
           <h1 className="font-bold text-5xl mb-8">
             {caseData.fields.accountName}
           </h1>
+          <p className="mb-4 font-bold">
+            Technical Account Manager:
+            <br /> <span className="font-normal">{caseData.fields.tam.fields.name}</span>
+          </p>
           <h2 className="font-bold mb-2 text-xl">Use cases:</h2>
           {caseData.fields.useCases.map((useCase: any, index: number) => (
             <p className="font-md mb-2" key={index}>
