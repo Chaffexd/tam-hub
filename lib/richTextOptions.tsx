@@ -35,7 +35,7 @@ export const richTextOptions = {
     [BLOCKS.HEADING_1]: (node: any, children: any) => {
       const titles = children[0][1];
       return (
-        <h1 className="font-bold text-5xl my-4 dark:text-white flex items-center group">
+        <h1 className="font-bold text-5xl my-4  flex items-center group">
           {children}
           {/* <CopyLinkIcon titles={titles} /> */}
         </h1>
@@ -43,32 +43,32 @@ export const richTextOptions = {
     },
     [BLOCKS.HEADING_2]: (node: any, children: any) => {
       return (
-        <h2 className="font-bold text-2xl my-4 dark:text-white">{children}</h2>
+        <h2 className="font-bold text-2xl my-4 ">{children}</h2>
       );
     },
     [BLOCKS.HEADING_3]: (node: any, children: any) => {
       return (
-        <h3 className="font-bold text-xl my-4 dark:text-white">{children}</h3>
+        <h3 className="font-bold text-xl my-4">{children}</h3>
       );
     },
     [BLOCKS.HEADING_4]: (node: any, children: any) => {
       return (
-        <h4 className="font-bold text-lg my-4 dark:text-white">{children}</h4>
+        <h4 className="font-bold text-lg my-4 ">{children}</h4>
       );
     },
     [BLOCKS.HEADING_5]: (node: any, children: any) => {
       return (
-        <h5 className="font-bold text-lg my-4 dark:text-white">{children}</h5>
+        <h5 className="font-bold text-lg my-4 ">{children}</h5>
       );
     },
     [BLOCKS.HEADING_6]: (node: any, children: any) => {
       return (
-        <h6 className="font-bold text-lg my-4 dark:text-white">{children}</h6>
+        <h6 className="font-bold text-lg my-4">{children}</h6>
       );
     },
     [BLOCKS.UL_LIST]: (node: any, children: any) => {
       return (
-        <ul className="list-disc dark:text-slate-200 list-inside">
+        <ul className="list-disc  list-inside">
           {children}
         </ul>
       );
@@ -78,13 +78,13 @@ export const richTextOptions = {
     },
     [BLOCKS.OL_LIST]: (node: any, children: any) => {
       return (
-        <ol className="my-4 dark:text-slate-200 list-inside list-decimal">
+        <ol className="my-4 list-inside list-decimal">
           {children}
         </ol>
       );
     },
     [BLOCKS.PARAGRAPH]: (node: any, children: any) => {
-      return <p className="my-4 dark:text-slate-200 inline">{children}</p>;
+      return <p className="my-4 inline">{children}</p>;
     },
     [BLOCKS.TABLE]: (node: any, children: any) => {
       return (
