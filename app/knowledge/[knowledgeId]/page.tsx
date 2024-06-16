@@ -2,12 +2,12 @@ import FilteredArticles from "@/components/FilteredArticles";
 import BackArrow from "@/components/icons/BackArrow";
 import { fetchCategoryArticles, fetchCategoryInfo } from "@/lib/contentful";
 import Link from "next/link";
-import type { Metadata } from 'next'
- 
+import type { Metadata } from "next";
+
 export const metadata: Metadata = {
-  title: 'Internal Knowledge Base | Support',
-  description: 'The internal Support KB',
-}
+  title: "Internal Knowledge Base | Support",
+  description: "The internal Support KB",
+};
 
 const KnowledgeCategoryPage = async ({
   params,
@@ -34,9 +34,12 @@ const KnowledgeCategoryPage = async ({
       </Link>
       <h1 className="font-bold text-3xl pt-4">{categoryTitle as string}</h1>
       <div className="mt-12 border-t-cfgrey-1 border-t pt-8 flex flex-wrap gap-4">
-        {filteredArticles.map((article) => (
-          <FilteredArticles key={article.sys.id} article={article} />
-        ))}
+        {filteredArticles
+        // @ts-expect-error
+          .sort((a, b) => new Date(b.fields.date) - new Date(a.fields.date))
+          .map((article) => (
+            <FilteredArticles key={article.sys.id} article={article} />
+          ))}
       </div>
     </section>
   );

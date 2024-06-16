@@ -12,7 +12,7 @@ const FilteredArticles = ({ article }: any) => {
   return (
     <Link
       href={`${articleSlug}`}
-      className="w-1/3 border-2 border-cfgrey-1 hover:bg-blue-50 rounded-xl hover:-translate-y-2 transition-transform transform p-4 flex flex-col justify-between"
+      className="w-[305px] border-2 border-cfgrey-1 hover:bg-blue-50 rounded-xl hover:-translate-y-2 transition-transform transform p-4 flex flex-col justify-between"
     >
       <h1 className="text-xl font-bold mb-8">{title}</h1>
       <div className="flex justify-between items-center">

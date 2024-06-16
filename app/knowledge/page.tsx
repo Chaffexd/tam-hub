@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
  
 export const metadata: Metadata = {
   title: 'Internal Knowledge Base | Support',
-  description: 'The internal Support KB',
+  description: 'The Internal TAM Knowledge Hub',
 }
 
 const KnowledgePage = async () => {
