@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "TAM Hub",
-  description: "The home of information for Technical Account Management, Support trainings and the internal Support knowledge base.",
+  description: "The home of information for Technical Account Management, Support Trainings and the internal TAM Knowledge Base.",
 };
 
 export default async function RootLayout({
