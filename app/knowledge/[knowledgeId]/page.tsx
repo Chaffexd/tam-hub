@@ -34,7 +34,7 @@ const KnowledgeCategoryPage = async ({
         <Link href={"/knowledge"} className="flex">
           <BackArrow />
           <p className="text-xl mb-12 ml-4 hover:underline">
-            There'll be something here, soon... 👀
+            There&apos;ll be something here, soon... 👀
           </p>
         </Link>
 
