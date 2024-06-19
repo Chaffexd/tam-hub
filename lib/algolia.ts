@@ -161,28 +161,28 @@ function transformedSalesInfo(data) {
     console.log(
       `🎉 Sucessfully added ${
         algoliaCaseStudy.objectIDs.length
-      } records to Algolia search. Object IDs:\n${algoliaCaseStudy.objectIDs.join(
+      } case studies to Algolia search. Object IDs:\n${algoliaCaseStudy.objectIDs.join(
         "\n"
       )}`
     );
     console.log(
       `🎉 Sucessfully added ${
         algoliaTrainingSession.objectIDs.length
-      } records to Algolia search. Object IDs:\n${algoliaTrainingSession.objectIDs.join(
+      } training sessions to Algolia search. Object IDs:\n${algoliaTrainingSession.objectIDs.join(
         "\n"
       )}`
     );
     console.log(
       `🎉 Sucessfully added ${
         algoliaSalesInformation.objectIDs.length
-      } records to Algolia search. Object IDs:\n${algoliaSalesInformation.objectIDs.join(
+      } sales info to Algolia search. Object IDs:\n${algoliaSalesInformation.objectIDs.join(
         "\n"
       )}`
     );
     console.log(
       `🎉 Sucessfully added ${
         algoliaKnowledgeInfo.objectIDs.length
-      } records to Algolia search. Object IDs:\n${algoliaKnowledgeInfo.objectIDs.join(
+      } knowledge articles to Algolia search. Object IDs:\n${algoliaKnowledgeInfo.objectIDs.join(
         "\n"
       )}`
     );
